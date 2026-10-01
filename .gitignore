@@ -8,3 +8,4 @@ obj/
 *.swp
 # Notes personnelles du TP
 notes.md
+.env
