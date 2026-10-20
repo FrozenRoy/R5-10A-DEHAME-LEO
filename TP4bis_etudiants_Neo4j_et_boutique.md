@@ -658,10 +658,10 @@ Jouez-les **dans l'ordre**, puis renvoyez une seconde fois l'achat de *Valorant*
 
 | Appel | Code HTTP attendu | À vérifier dans… |
 |---|---|---|
-| Nova achète *Terraria* | | `psql` : solde de Nova, contenu de `"Purchases"` |
-| Nova achète *Baldur's Gate 3* | | `psql` : le solde a-t-il bougé ? |
-| Nova achète *Valorant* (2 fois) | | `psql` : combien de lignes `"Purchases"` ? |
-| Nova achète *Tetris* | | — |
+| Nova achète *Terraria* | 200 | `psql` : solde de Nova, contenu de `"Purchases"` |
+| Nova achète *Baldur's Gate 3* |   400 conflit | `psql` : le solde a-t-il bougé ? |
+| Nova achète *Valorant* (2 fois) | 200 et 400 | `psql` : combien de lignes `"Purchases"` ? |
+| Nova achète *Tetris* | 404 | — |
 | Luna achète *Terraria* | | |
 | — | | Browser : `MATCH (:Joueur {pseudo:'Nova'})-[r:POSSEDE]->(j) RETURN j.titre, r.depuis` |
 | — | | `redis-cli` : `ZREVRANGE ventes:jeux 0 -1 WITHSCORES` |
