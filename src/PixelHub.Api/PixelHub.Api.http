@@ -31,3 +31,12 @@ Accept: application/json
 ### Séance 2 — agrégation : note moyenne par genre
 GET {{host}}/games/stats
 Accept: application/json
+
+### Séance 3 — Redis : score d'un joueur
+
+POST {{host}}/leaderboard/Krayz/points/1
+Content-Type: application/json
+
+#### Séance 3 — Online 
+POST {{host}}/online/Krayz
+Content-Type: application/json
